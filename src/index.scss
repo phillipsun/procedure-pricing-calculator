@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+// Variables
+$tablet-wide-min: 768px;
+$desktop-sm-min: 1025px;
+$color-1: #000;
+$color-2: #fff;
+$color-3: #0283ae;
+$color-4: #2384ae;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  height: 100%;
+  background: #000;
+  color: #fff;
+
+  &:before {
+    background-image: url("//assets.doctorlogic.com/Images/Sites/M/MoralesRolando/Masterpage/interior_bg.jpg");
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    opacity: 0.15;
+    z-index: -1;
+  }
+}
+
+p {
+  line-height: 1.5;
+}
+
+.container {
+  margin: 0 auto;
+  width: 90vw;
+  @media (min-width: $desktop-sm-min) {
+    width: 80vw;
+  }
+}
+
+.animateAll {
+  transition: all 0.3s;
+}
+
+.pricing-calc {
+  &__new-total,
+  &__old-total {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 100;
+  }
+  &__discount {
+    border-bottom: 2px solid $color-3;
+    display: inline-block;
+    font-size: 1.5rem;
+    margin: 0 0 0 50px;
+    padding: 0 0 5px 0;
+    text-transform: uppercase;
+    transition: all 0.3s;
+  }
+  &__num-selected {
+    display: block;
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+  &__text {
+    margin: 1em 0;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    font-weight: 100;
+  }
+  &__clear {
+    display: inline-block;
+    margin-top: 2em;
+    background: $color-3;
+    padding: 10px 20px;
+    @media (min-width: $desktop-sm-min) {
+      &:hover {
+        background: lighten($color-4, 25%);
+      }
+    }
+  }
+}
+
+.procedure-list {
+  &__category {
+    margin-bottom: 0px;
+    display: block;
+  }
+  &__category-header {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: $color-3;
+    font-weight: 400;
+  }
+}
+
+.procedure {
+  margin-bottom: 10px;
+  padding: 15px 10px;
+  color: #fff;
+  &__label {
+    margin: 0;
+    text-transform: capitalize;
+    font-weight: 300;
+  }
+  &__price {
+    margin: 0;
+  }
+  &--selected {
+    background: $color-3;
+    @media (min-width: $desktop-sm-min) {
+      &:hover {
+        background: $color-3;
+      }
+    }
+  }
+  @media (min-width: $desktop-sm-min) {
+    &:hover {
+      background: lighten($color-4, 25%);
+    }
+  }
+}
+
+@media (min-width: $tablet-wide-min) {
+  .pricing-calc {
+    margin: 10px 0;
+    &__total-wrapper {
+      display: inline-flex;
+      flex-direction: column;
+    }
+    &__new-total {
+      margin: 0;
+    }
+    &__old-total {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+  }
+
+  .procedure-list {
+    columns: 3;
+    &__category {
+      margin-bottom: 30px;
+      display: inline-block;
+      width: 100%;
+    }
+  }
+}
