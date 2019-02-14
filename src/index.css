@@ -36,6 +36,10 @@ p {
   font-size: 1.5rem;
   font-weight: 100; }
 
+.pricing-calc__old-total {
+  margin: 3px 0 0 0;
+  text-decoration: line-through; }
+
 .pricing-calc__discount {
   border-bottom: 2px solid #0283ae;
   display: inline-block;
@@ -50,17 +54,22 @@ p {
   font-size: 1rem;
   margin-top: 10px; }
 
+.pricing-calc__wrapper {
+  display: flex;
+  align-items: center;
+  margin: 50px 0 0; }
+
 .pricing-calc__text {
-  margin: 1em 0;
   text-transform: capitalize;
   font-size: 1.5rem;
-  font-weight: 100; }
+  font-weight: 100;
+  margin: 0; }
 
 .pricing-calc__clear {
   display: inline-block;
-  margin-top: 2em;
   background: #0283ae;
-  padding: 10px 20px; }
+  padding: 10px 20px;
+  margin: 0 30px 0 0; }
   @media (min-width: 1025px) {
     .pricing-calc__clear:hover {
       background: #6fbfe2; } }
@@ -72,6 +81,7 @@ p {
 .procedure-list__category-header {
   font-size: 2rem;
   margin-bottom: 20px;
+  margin-top: 10px;
   color: #0283ae;
   font-weight: 400; }
 
@@ -82,17 +92,19 @@ p {
   .procedure__label {
     margin: 0;
     text-transform: capitalize;
-    font-weight: 300; }
+    font-weight: 600;
+    font-size: 1.4rem; }
   .procedure__price {
     margin: 0; }
+  @media (min-width: 1025px) {
+    .procedure:hover {
+      background: rgba(200, 200, 200, 0.15);
+      cursor: pointer; } }
   .procedure--selected {
     background: #0283ae; }
     @media (min-width: 1025px) {
       .procedure--selected:hover {
         background: #0283ae; } }
-  @media (min-width: 1025px) {
-    .procedure:hover {
-      background: #6fbfe2; } }
 
 @media (min-width: 768px) {
   .pricing-calc {
@@ -103,11 +115,18 @@ p {
     .pricing-calc__new-total {
       margin: 0; }
     .pricing-calc__old-total {
-      margin: 0;
-      font-size: 1.2rem; }
+      font-size: 1.2rem; } }
+
+@media (min-width: 768px) and (min-width: 650px) {
   .procedure-list {
-    columns: 3; }
-    .procedure-list__category {
-      margin-bottom: 30px;
-      display: inline-block;
-      width: 100%; } }
+    columns: 2; } }
+
+@media (min-width: 768px) and (min-width: 1241px) {
+  .procedure-list {
+    columns: 3; } }
+
+@media (min-width: 768px) {
+  .procedure-list__category {
+    margin-bottom: 30px;
+    display: inline-block;
+    width: 100%; } }

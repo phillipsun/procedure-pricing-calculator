@@ -26,11 +26,10 @@ class PricingCalc extends Component {
             <h3 className="pricing-calc__new-total">
               <span>Total: $0</span>
             </h3>
-            <span className="pricing-calc__num-selected">
-              No procedures selected
-            </span>
           </div>
-          <h4 className="pricing-calc__text">Select Desired Procedures:</h4>
+          <div className="pricing-calc__wrapper">
+            <h4 className="pricing-calc__text">Select Desired Procedures:</h4>
+          </div>
         </React.Fragment>
       );
     } else if (selectedProcedures.length === 1) {
@@ -59,19 +58,18 @@ class PricingCalc extends Component {
                 duration={700}
               />
             </h3>
-            <span className="pricing-calc__num-selected">
-              1 procedure selected
-            </span>
-            <div
-              className="pricing-calc__clear"
-              onClick={() => {
-                clearProcedures();
-              }}
-            >
-              Reset
+            <div className="pricing-calc__wrapper">
+              <div
+                className="pricing-calc__clear"
+                onClick={() => {
+                  clearProcedures();
+                }}
+                >
+                  Clear Selections
+              </div>
+              <h4 className="pricing-calc__text">1 Procedure Selected</h4>
             </div>
           </div>
-          <h4 className="pricing-calc__text">Select Desired Procedures:</h4>
         </React.Fragment>
       );
     } else {
@@ -136,19 +134,18 @@ class PricingCalc extends Component {
                 duration={1000}
               />
             </h3>
-            <span className="pricing-calc__num-selected">
-              {selectedProcedures.length} procedures selected
-            </span>
-            <div
-              className="pricing-calc__clear"
-              onClick={() => {
-                clearProcedures();
-              }}
-            >
-              Reset
-            </div>
+            <div className="pricing-calc__wrapper">
+              <div
+                className="pricing-calc__clear"
+                onClick={() => {
+                  clearProcedures();
+                }}
+              >
+                Clear Selections
+              </div>
+              <h4 className="pricing-calc__text">{selectedProcedures.length} procedures selected</h4>
+            </div>            
           </div>
-          <h4 className="pricing-calc__text">Select Desired Procedures:</h4>
         </React.Fragment>
       );
     }
