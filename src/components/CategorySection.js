@@ -14,6 +14,7 @@ class CategorySection extends Component {
         <div className="procedure-list__category-procedures">
           {procedures &&
             procedures.map(procedure => {
+              // Change to pass in procedure.isSelected as a prop then change Procedure component
               return procedure.CategoryId === category.CategoryId ? (
                 <Procedure key={procedure.ProcedureId} procedure={procedure} />
               ) : null;

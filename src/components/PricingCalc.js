@@ -18,17 +18,16 @@ class PricingCalc extends Component {
       discountedSelectedMax,
       discount
     } = this.props;
-
     if (selectedProcedures.length === 0) {
       return (
         <React.Fragment>
           <div className="pricing-calc">
-            <h3 className="pricing-calc__new-total">
+            <h3 className="pricing-calc__new-total" style={{ opacity: '0.2' }}>
               <span>Total: $0</span>
             </h3>
-          </div>
-          <div className="pricing-calc__wrapper">
-            <h4 className="pricing-calc__text">Select Desired Procedures:</h4>
+            <div className="pricing-calc__wrapper">
+              <h4 className="pricing-calc__text" style={{ margin: "0" }}>Select Desired Procedures:</h4>
+            </div>
           </div>
         </React.Fragment>
       );

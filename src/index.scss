@@ -1,31 +1,33 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 
 // Variables
+$phone-wide-min: 569px;
 $tablet-wide-min: 768px;
 $desktop-sm-min: 1025px;
+$desktop-min: 1241px;
+
 $color-1: #000;
 $color-2: #fff;
 $color-3: #0283ae;
 $color-4: #2384ae;
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Montserrat", sans-serif;
-  height: 100%;
   background: #000;
   color: #fff;
-
+  font-family: "Montserrat", sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
   &:before {
     background-image: url("//assets.doctorlogic.com/Images/Sites/M/MoralesRolando/Masterpage/interior_bg.jpg");
+    background-size: cover;
     content: "";
-    position: fixed;
+    height: 100%;
     left: 0;
+    opacity: 0.15;
+    position: fixed;
     top: 0;
     width: 100%;
-    height: 100%;
-    background-size: cover;
-    opacity: 0.15;
     z-index: -1;
   }
 }
@@ -36,58 +38,107 @@ p {
 
 .container {
   margin: 0 auto;
-  width: 90vw;
-  @media (min-width: $desktop-sm-min) {
+  width: 100%;
+  @media(min-width: $tablet-wide-min) {
     width: 80vw;
   }
-}
-
-.animateAll {
-  transition: all 0.3s;
+  > *:not(.pricing-calc) {
+    padding: 0 15px;
+  }
 }
 
 .pricing-calc {
-  &__new-total,
-  &__old-total {
+  background: #333;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 15px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media(min-width: $phone-wide-min) {
+    margin: 10px 0;
+  }
+  @media(min-width: $tablet-wide-min) {
+    display: block;
+    position: relative;
+    z-index: 0;
+    background: 0;
+    padding: 0 15px;
+  }
+  &__total-wrapper {
+    display: flex;
+    flex-direction: column;
+    @media(min-width: $phone-wide-min) {
+      display: inline-flex;
+    }
+  }
+  &__new-total {
     display: inline-block;
-    font-size: 1.5rem;
-    font-weight: 100;
+    font-size: 1.2rem;
+    margin: 0;
+    @media(min-width: $phone-wide-min) {
+      font-size: 1.5rem;  
+    }
   }
   &__old-total {
-    margin: 3px 0 0 0;
+    display: inline-block;
+    font-size: .9rem;
+    margin: 3px auto 0;
     text-decoration: line-through;
+    @media(min-width: $phone-wide-min) {
+      font-size: 1.2rem;
+    }
+    @media(min-width: $tablet-wide-min) {
+      margin: 3px 0 0 0;
+    }
   }
   &__discount {
     border-bottom: 2px solid $color-3;
     display: inline-block;
-    font-size: 1.5rem;
-    margin: 0 0 0 50px;
+    font-size: 1.2rem;
+    margin: 10px 0 0 0;
     padding: 0 0 5px 0;
     text-transform: uppercase;
     transition: all 0.3s;
-  }
-  &__num-selected {
-    display: block;
-    font-size: 1rem;
-    margin-top: 10px;
+    @media(min-width: $phone-wide-min) {
+      font-size: 1.5rem;
+      margin: 0 0 0 50px;
+    }
   }
   &__wrapper {
+    align-items: flex-start;
     display: flex;
-    align-items: center;
-    margin: 50px 0 0;
+    flex-direction: column-reverse;
+    margin: 10px 0 0;
+    @media(min-width: $tablet-wide-min) {
+      align-items: center;
+      flex-direction: row;
+      margin: 50px 0 0;
+    }
   }
   &__text {
-    text-transform: capitalize;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 100;
-    margin: 0;
+    margin: 5px 0;
+    text-transform: capitalize;
+    @media(min-width: $tablet-wide-min) {
+      font-size: 1.2rem;
+      margin: 0 0 0 30px;
+    }
   }
   &__clear {
-    display: inline-block;
     background: $color-3;
+    display: inline-block;
+    margin: 0 auto;
     padding: 10px 20px;
-    margin: 0 30px 0 0;
-    @media (min-width: $desktop-sm-min) {
+    @media(min-width: $tablet-wide-min) {
+      margin: 0;
+    }
+    @media(min-width: $desktop-sm-min) {
       &:hover {
         background: lighten($color-4, 25%);
       }
@@ -96,73 +147,72 @@ p {
 }
 
 .procedure-list {
+  @media(min-width: $phone-wide-min) {
+    columns: 2;
+  }
+  @media(min-width: $desktop-min) {
+    columns: 3;
+  }
   &__category {
-    margin-bottom: 0px;
     display: block;
+    margin-bottom: 0px;
+    @media(min-width: $phone-wide-min) {
+      display: inline-block;
+      margin-bottom: 30px;
+      width: 100%;
+    }
   }
   &__category-header {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    margin-top: 10px;
     color: $color-3;
+    font-size: 2rem;
     font-weight: 400;
+    margin: 10px 0;
   }
 }
 
 .procedure {
-  margin-bottom: 10px;
-  padding: 15px 10px;
   color: #fff;
-  &__label {
-    margin: 0;
-    text-transform: capitalize;
-    font-weight: 600;
-    font-size: 1.4rem;
-  }
-  &__price {
-    margin: 0;
-  }
-  @media (min-width: $desktop-sm-min) {
+  margin-bottom: 10px;
+  padding: 15px 50px 15px 10px;
+  position: relative;
+  transition: 0.3s all;
+  @media(min-width: $desktop-sm-min) {
     &:hover {
       background: rgba(200, 200, 200, .15);
       cursor: pointer;
     }
   }
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+    text-transform: capitalize;
+    @media(min-width: $desktop-sm-min) {
+      font-size: 1.4rem;
+    }
+  }
+  &__price {
+    margin: 0;
+  }
   &--selected {
     background: $color-3;
-    @media (min-width: $desktop-sm-min) {
+    @media(min-width: $desktop-sm-min) {
       &:hover {
+        padding: 15px 50px 15px 10px;
         background: $color-3;
       }
     }
-  }
-}
-@media (min-width: $tablet-wide-min) {
-  .pricing-calc {
-    margin: 10px 0;
-    &__total-wrapper {
-      display: inline-flex;
-      flex-direction: column;
-    }
-    &__new-total {
-      margin: 0;
-    }
-    &__old-total {
-      font-size: 1.2rem;
-    }
-  }
-
-  .procedure-list {
-    @media(min-width: 650px) {
-      columns: 2;
-    }
-    @media(min-width: 1241px) {
-      columns: 3;
-    }
-    &__category {
-      margin-bottom: 30px;
-      display: inline-block;
-      width: 100%;
+    &::after {
+      content: '\00d7';
+      font-size: 2rem;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      width: 40px;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 }

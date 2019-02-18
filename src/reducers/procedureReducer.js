@@ -26,7 +26,6 @@ const procedureReducer = (state = initialState, action) => {
         categories: action.payload.Categories
       };
     case SELECT_PROCEDURE:
-      //console.log(500 * state.selectedProcedures.length);
       return {
         ...state,
         procedures: state.procedures.map(procedure =>
