@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/procedure-pricing-calculator/precache-manifest.fb8abe766debaec372373fc868b58d5d.js"
+  "/procedure-pricing-calculator/precache-manifest.792626b97f2d5fd434e60fc627c453b1.js"
 );
 
 workbox.clientsClaim();
