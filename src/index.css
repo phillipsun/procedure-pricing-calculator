@@ -1,57 +1,33 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat");
 body {
-  background: #000;
-  color: #fff;
-  font-family: "Montserrat", sans-serif;
-  height: 100%;
-  margin: 0;
-  padding: 0; }
-  body:before {
-    background-image: url("//assets.doctorlogic.com/Images/Sites/M/MoralesRolando/Masterpage/interior_bg.jpg");
-    background-size: cover;
-    content: "";
-    height: 100%;
-    left: 0;
-    opacity: 0.15;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: -1; }
+  background: #000; }
 
-p {
+#root {
+  background: #000;
+  color: #fff; }
+
+#root .container {
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  width: 100%; }
+
+.app__headline {
+  text-transform: uppercase; }
+
+.panel-body p {
   line-height: 1.5; }
 
-.container {
-  margin: 0 auto;
-  width: 100%; }
-  @media (min-width: 768px) {
-    .container {
-      width: 80vw; } }
-  .container > *:not(.pricing-calc) {
-    padding: 0 15px; }
-
 .pricing-calc {
-  background: #333;
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
+  background: #333333;
   left: 0;
   right: 0;
   z-index: 100;
   padding: 15px 10px;
   display: flex;
   flex-direction: column;
-  align-items: center; }
-  @media (min-width: 569px) {
-    .pricing-calc {
-      margin: 10px 0; } }
-  @media (min-width: 768px) {
-    .pricing-calc {
-      display: block;
-      position: relative;
-      z-index: 0;
-      background: 0;
-      padding: 0 15px; } }
+  align-items: center;
+  margin: 20px -15px 0; }
   .pricing-calc__total-wrapper {
     display: flex;
     flex-direction: column; }
@@ -109,6 +85,7 @@ p {
         margin: 0 0 0 30px; } }
   .pricing-calc__clear {
     background: #0283ae;
+    color: #fff;
     display: inline-block;
     margin: 0 auto;
     padding: 10px 20px; }
@@ -160,6 +137,13 @@ p {
     @media (min-width: 1025px) {
       .procedure__label {
         font-size: 1.4rem; } }
+  .procedure__info-link {
+    color: #0283ae;
+    display: inline-block;
+    font-size: 1.1rem;
+    margin: 0 0 0 5px;
+    text-decoration: none;
+    text-transform: lowercase; }
   .procedure__price {
     margin: 0; }
   .procedure--selected {

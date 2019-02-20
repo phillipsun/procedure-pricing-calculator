@@ -22,7 +22,7 @@ class Procedure extends Component {
               applyDiscount(procedure);
             }}
           >
-            <h3 className="procedure__label">{procedure.Label}</h3>
+            <h3 className="procedure__label">{procedure.Label.replace(/\*/g, '')}<a href={`/item/procedure/${procedure.ProcedureId}`} className="procedure__info-link" target="_blank" rel="noopener noreferrer">&#9432;</a></h3>
             <p className="procedure__price">
               <span className="procedure__min-price">
                 ${procedure.MinimumPrice}
@@ -47,7 +47,7 @@ class Procedure extends Component {
               applyDiscount(procedure);
             }}
           >
-            <h3 className="procedure__label">{procedure.Label}</h3>
+            <h3 className="procedure__label">{procedure.Label.replace(/\*/g, '')}<a href={`/item/procedure/${procedure.ProcedureId}`} className="procedure__info-link" target="_blank" rel="noopener noreferrer">&#9432;</a></h3>
             <p className="procedure__price">
               <span className="procedure__min-price">
                 ${procedure.MinimumPrice}

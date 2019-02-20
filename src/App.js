@@ -13,7 +13,9 @@ class App extends Component {
   render() {
     return (
       <div className="container">
-        <h1 className="headline">Multi-Procedure Pricing Calculator</h1>
+        <h1 className="headline app__headline">Select Multiple Procedures To See Your Discount</h1>
+        <PricingCalc />
+        <ProcedureList />
         <div className="panel">
           <div className="panel-body">
             <p>
@@ -29,8 +31,6 @@ class App extends Component {
             </p>
           </div>
         </div>
-        <PricingCalc />
-        <ProcedureList />
       </div>
     );
   }
