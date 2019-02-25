@@ -39,7 +39,20 @@ body {
   }
   &--fixed {
     position: fixed;
-    top: 0;
+    top: 80px;
+    margin-right: auto;
+    margin-left: auto;
+    @media(min-width: 768px) {
+      width: 750px;
+    }
+    // matches breakpoint of header for this customer
+    @media(min-width: 992px) {
+      top: 72px;
+      width: 970px;
+    }
+    @media(min-width: 1200px) {
+      width: 1170px;
+    }
   }
   &__amounts {
     display: flex;

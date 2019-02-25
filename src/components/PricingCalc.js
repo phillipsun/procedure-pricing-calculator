@@ -44,7 +44,7 @@ class PricingCalc extends Component {
             </div>
           </div>
           <div className="pricing-calc__selection-wrapper">
-            <h4 className="pricing-calc__text none-selected">Select Desired Procedures:</h4>
+            <h4 className="pricing-calc__text none-selected">No Procedures Selected</h4>
           </div>
         </div>
       );

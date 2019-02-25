@@ -32,7 +32,19 @@ body {
       align-items: flex-start; } }
   .pricing-calc--fixed {
     position: fixed;
-    top: 0; }
+    top: 80px;
+    margin-right: auto;
+    margin-left: auto; }
+    @media (min-width: 768px) {
+      .pricing-calc--fixed {
+        width: 750px; } }
+    @media (min-width: 992px) {
+      .pricing-calc--fixed {
+        top: 72px;
+        width: 970px; } }
+    @media (min-width: 1200px) {
+      .pricing-calc--fixed {
+        width: 1170px; } }
   .pricing-calc__amounts {
     display: flex;
     flex-direction: column;
