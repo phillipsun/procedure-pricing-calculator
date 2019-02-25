@@ -6,18 +6,16 @@ body {
 }
 
 #root {
-  background: $color-1;
   color: $color-2;
 }
 
 #root .container {
-  color: $color-2;
   padding: 0;
   margin: 0;
   width: 100%; 
 }
 
-.app__headline {
+.headline {
   text-transform: uppercase;
 }
 
@@ -34,12 +32,30 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px -15px 0;
-  &__total-wrapper {
+  position: relative;
+  transition: all 1s;
+  @media(min-width: $tablet-wide-min) { 
+    align-items: flex-start;
+  }
+  &--fixed {
+    position: fixed;
+    top: 0;
+  }
+  &__amounts {
     display: flex;
     flex-direction: column;
-    @media(min-width: $phone-wide-min) {
-      display: inline-flex;
+    align-items: center;
+    @media(min-width: $tablet-wide-min) { 
+      flex-direction: row;
+      align-items: flex-start;
+    }
+  }
+  &__total-wrapper {
+    margin: 10px 0 0 0;
+    display: inline-flex;
+    flex-direction: column;
+    @media(min-width: $tablet-wide-min) {
+      margin: 0 0 0 40px;
     }
   }
   &__new-total {
@@ -48,6 +64,9 @@ body {
     margin: 0;
     @media(min-width: $phone-wide-min) {
       font-size: 1.5rem;  
+    }
+    &.no-procedures-selected {
+      opacity: .2;
     }
   }
   &__old-total {
@@ -62,20 +81,22 @@ body {
       margin: 3px 0 0 0;
     }
   }
+  &__animated-number {
+    transition: background-color 0.8s ease-out 0s, color, opacity;
+  }
   &__discount {
     border-bottom: 2px solid $color-3;
     display: inline-block;
     font-size: 1.2rem;
-    margin: 10px 0 0 0;
     padding: 0 0 5px 0;
+    margin: 0;
     text-transform: uppercase;
     transition: all 0.3s;
     @media(min-width: $phone-wide-min) {
       font-size: 1.5rem;
-      margin: 0 0 0 50px;
     }
   }
-  &__wrapper {
+  &__selection-wrapper {
     align-items: flex-start;
     display: flex;
     flex-direction: column-reverse;
@@ -94,6 +115,9 @@ body {
     @media(min-width: $tablet-wide-min) {
       font-size: 1.2rem;
       margin: 0 0 0 30px;
+    }
+    &.none-selected {
+      margin: 0;
     }
   }
   &__clear {
@@ -154,6 +178,7 @@ body {
     font-weight: 600;
     margin: 0;
     text-transform: capitalize;
+    display: inline-block;
     @media(min-width: $desktop-sm-min) {
       font-size: 1.4rem;
     }
@@ -165,6 +190,7 @@ body {
     margin: 0 0 0 5px;
     text-decoration: none;
     text-transform: lowercase;
+    z-index: 10;
   }
   &__price {
     margin: 0;
@@ -177,17 +203,20 @@ body {
         background: $color-3;
       }
     }
-    &::after {
-      content: '\00d7';
-      font-size: 2rem;
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      width: 40px;
-      transform: translateY(-50%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .procedure__info-link {
+      color: $color-2;
     }
+  }
+  &__deselect::before {
+    content: '\00d7';
+    font-size: 2rem;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    width: 40px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

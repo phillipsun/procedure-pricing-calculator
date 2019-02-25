@@ -20,132 +20,155 @@ class PricingCalc extends Component {
     } = this.props;
     if (selectedProcedures.length === 0) {
       return (
-        <React.Fragment>
-          <div className="pricing-calc">
-            <h3 className="pricing-calc__new-total" style={{ opacity: '0.2' }}>
-              <span>Total: $0</span>
+        <div className="pricing-calc">
+          <div className="pricing-calc__amounts">
+            <h3 className="pricing-calc__discount">
+              <span>Save: $</span>
+              <AnimatedNumber
+                className="pricing-calc__animated-number"
+                value={discount}
+                stepPrecision={0}
+                duration={1000}
+              />
             </h3>
-            <div className="pricing-calc__wrapper">
-              <h4 className="pricing-calc__text" style={{ margin: "0" }}>Select Desired Procedures:</h4>
+            <div className="pricing-calc__total-wrapper">
+              <h3 className="pricing-calc__new-total no-procedures-selected">
+                <span>Total: $</span>
+                <AnimatedNumber
+                  className="pricing-calc__animated-number"
+                  value={selectedMin}
+                  stepPrecision={0}
+                  duration={1000}
+                />
+              </h3>
             </div>
           </div>
-        </React.Fragment>
+          <div className="pricing-calc__selection-wrapper">
+            <h4 className="pricing-calc__text none-selected">Select Desired Procedures:</h4>
+          </div>
+        </div>
       );
     } else if (selectedProcedures.length === 1) {
       return (
-        <React.Fragment>
-          <div className="pricing-calc">
-            <h3 className="pricing-calc__new-total">
-              <span>Total: $</span>
+        <div className="pricing-calc">
+          <div className="pricing-calc__amounts">
+            <h3 className="pricing-calc__discount">
+              <span>Save: $</span>
               <AnimatedNumber
-                value={selectedMin}
-                style={{
-                  transition: "0.8s ease-out",
-                  transitionProperty: "background-color, color, opacity"
-                }}
+                className="pricing-calc__animated-number"
+                value={discount}
                 stepPrecision={0}
-                duration={700}
-              />
-              <span> - $</span>
-              <AnimatedNumber
-                value={selectedMax}
-                style={{
-                  transition: "0.8s ease-out",
-                  transitionProperty: "background-color, color, opacity"
-                }}
-                stepPrecision={0}
-                duration={700}
+                duration={1000}
               />
             </h3>
-            <div className="pricing-calc__wrapper">
-              <div
-                className="pricing-calc__clear"
-                onClick={() => {
-                  clearProcedures();
-                }}
-                >
-                  Clear Selections
-              </div>
-              <h4 className="pricing-calc__text">1 Procedure Selected</h4>
-            </div>
-          </div>
-        </React.Fragment>
-      );
-    } else {
-      return (
-        <React.Fragment>
-          <div className="pricing-calc">
             <div className="pricing-calc__total-wrapper">
               <h3 className="pricing-calc__new-total">
-                <span>Now: $</span>
+                <span>Total: $</span>
                 <AnimatedNumber
-                  value={discountedSelectedMin}
-                  style={{
-                    transition: "0.8s ease-out",
-                    transitionProperty: "background-color, color, opacity"
-                  }}
+                  className="pricing-calc__animated-number"
+                  value={selectedMin}
                   stepPrecision={0}
-                  duration={700}
+                  duration={1000}
                 />
                 <span> - $</span>
                 <AnimatedNumber
-                  value={discountedSelectedMax}
-                  style={{
-                    transition: "0.8s ease-out",
-                    transitionProperty: "background-color, color, opacity"
-                  }}
+                  className="pricing-calc__animated-number"
+                  value={selectedMax}
                   stepPrecision={0}
-                  duration={700}
+                  duration={1000}
                 />
               </h3>
               <h3 className="pricing-calc__old-total">
                 <span>Was: $</span>
                 <AnimatedNumber
+                  className="pricing-calc__animated-number"
                   value={selectedMin}
-                  style={{
-                    transition: "0.8s ease-out",
-                    transitionProperty: "background-color, color, opacity"
-                  }}
                   stepPrecision={0}
-                  duration={700}
+                  duration={1000}
                 />
                 <span> - $</span>
                 <AnimatedNumber
+                  className="pricing-calc__animated-number"
                   value={selectedMax}
-                  style={{
-                    transition: "0.8s ease-out",
-                    transitionProperty: "background-color, color, opacity"
-                  }}
                   stepPrecision={0}
-                  duration={700}
+                  duration={1000}
                 />
               </h3>
             </div>
-            <h3 className="pricing-calc__discount animateAll">
+          </div>
+          <div className="pricing-calc__selection-wrapper">
+            <div
+              className="pricing-calc__clear"
+              onClick={() => {
+                clearProcedures();
+              }}
+              >
+                Clear Selections
+            </div>
+            <h4 className="pricing-calc__text">{selectedProcedures.length} Procedure Selected</h4>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div className="pricing-calc">
+          <div className="pricing-calc__amounts">
+            <h3 className="pricing-calc__discount">
               <span>Save: $</span>
               <AnimatedNumber
+                className="pricing-calc__animated-number"
                 value={discount}
-                style={{
-                  transition: "0.8s ease-out",
-                  transitionProperty: "background-color, color, opacity"
-                }}
                 stepPrecision={0}
                 duration={1000}
               />
             </h3>
-            <div className="pricing-calc__wrapper">
-              <div
-                className="pricing-calc__clear"
-                onClick={() => {
-                  clearProcedures();
-                }}
-              >
-                Clear Selections
-              </div>
-              <h4 className="pricing-calc__text">{selectedProcedures.length} procedures selected</h4>
-            </div>            
+            <div className="pricing-calc__total-wrapper">
+              <h3 className="pricing-calc__new-total">
+                <span>Now: $</span>
+                <AnimatedNumber
+                  className="pricing-calc__animated-number"
+                  value={discountedSelectedMin}
+                  stepPrecision={0}
+                  duration={1000}
+                />
+                <span> - $</span>
+                <AnimatedNumber
+                  className="pricing-calc__animated-number"
+                  value={discountedSelectedMax}
+                  stepPrecision={0}
+                  duration={1000}
+                />
+              </h3>
+              <h3 className="pricing-calc__old-total">
+                <span>Was: $</span>
+                <AnimatedNumber
+                  className="pricing-calc__animated-number"
+                  value={selectedMin}
+                  stepPrecision={0}
+                  duration={1000}
+                />
+                <span> - $</span>
+                <AnimatedNumber
+                  className="pricing-calc__animated-number"
+                  value={selectedMax}
+                  stepPrecision={0}
+                  duration={1000}
+                />
+              </h3>
+            </div>
           </div>
-        </React.Fragment>
+          <div className="pricing-calc__selection-wrapper">
+            <div
+              className="pricing-calc__clear"
+              onClick={() => {
+                clearProcedures();
+              }}
+            >
+              Clear Selections
+            </div>
+            <h4 className="pricing-calc__text">{selectedProcedures.length} procedures selected</h4>
+          </div>            
+        </div>
       );
     }
   }

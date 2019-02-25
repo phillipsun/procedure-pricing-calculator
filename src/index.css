@@ -3,16 +3,14 @@ body {
   background: #000; }
 
 #root {
-  background: #000;
   color: #fff; }
 
 #root .container {
-  color: #fff;
   padding: 0;
   margin: 0;
   width: 100%; }
 
-.app__headline {
+.headline {
   text-transform: uppercase; }
 
 .panel-body p {
@@ -27,13 +25,29 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px -15px 0; }
-  .pricing-calc__total-wrapper {
+  position: relative;
+  transition: all 1s; }
+  @media (min-width: 768px) {
+    .pricing-calc {
+      align-items: flex-start; } }
+  .pricing-calc--fixed {
+    position: fixed;
+    top: 0; }
+  .pricing-calc__amounts {
     display: flex;
+    flex-direction: column;
+    align-items: center; }
+    @media (min-width: 768px) {
+      .pricing-calc__amounts {
+        flex-direction: row;
+        align-items: flex-start; } }
+  .pricing-calc__total-wrapper {
+    margin: 10px 0 0 0;
+    display: inline-flex;
     flex-direction: column; }
-    @media (min-width: 569px) {
+    @media (min-width: 768px) {
       .pricing-calc__total-wrapper {
-        display: inline-flex; } }
+        margin: 0 0 0 40px; } }
   .pricing-calc__new-total {
     display: inline-block;
     font-size: 1.2rem;
@@ -41,6 +55,8 @@ body {
     @media (min-width: 569px) {
       .pricing-calc__new-total {
         font-size: 1.5rem; } }
+    .pricing-calc__new-total.no-procedures-selected {
+      opacity: .2; }
   .pricing-calc__old-total {
     display: inline-block;
     font-size: .9rem;
@@ -52,25 +68,26 @@ body {
     @media (min-width: 768px) {
       .pricing-calc__old-total {
         margin: 3px 0 0 0; } }
+  .pricing-calc__animated-number {
+    transition: background-color 0.8s ease-out 0s, color, opacity; }
   .pricing-calc__discount {
     border-bottom: 2px solid #0283ae;
     display: inline-block;
     font-size: 1.2rem;
-    margin: 10px 0 0 0;
     padding: 0 0 5px 0;
+    margin: 0;
     text-transform: uppercase;
     transition: all 0.3s; }
     @media (min-width: 569px) {
       .pricing-calc__discount {
-        font-size: 1.5rem;
-        margin: 0 0 0 50px; } }
-  .pricing-calc__wrapper {
+        font-size: 1.5rem; } }
+  .pricing-calc__selection-wrapper {
     align-items: flex-start;
     display: flex;
     flex-direction: column-reverse;
     margin: 10px 0 0; }
     @media (min-width: 768px) {
-      .pricing-calc__wrapper {
+      .pricing-calc__selection-wrapper {
         align-items: center;
         flex-direction: row;
         margin: 50px 0 0; } }
@@ -83,6 +100,8 @@ body {
       .pricing-calc__text {
         font-size: 1.2rem;
         margin: 0 0 0 30px; } }
+    .pricing-calc__text.none-selected {
+      margin: 0; }
   .pricing-calc__clear {
     background: #0283ae;
     color: #fff;
@@ -133,7 +152,8 @@ body {
     font-size: 1.2rem;
     font-weight: 600;
     margin: 0;
-    text-transform: capitalize; }
+    text-transform: capitalize;
+    display: inline-block; }
     @media (min-width: 1025px) {
       .procedure__label {
         font-size: 1.4rem; } }
@@ -143,7 +163,8 @@ body {
     font-size: 1.1rem;
     margin: 0 0 0 5px;
     text-decoration: none;
-    text-transform: lowercase; }
+    text-transform: lowercase;
+    z-index: 10; }
   .procedure__price {
     margin: 0; }
   .procedure--selected {
@@ -152,14 +173,16 @@ body {
       .procedure--selected:hover {
         padding: 15px 50px 15px 10px;
         background: #0283ae; } }
-    .procedure--selected::after {
-      content: '\00d7';
-      font-size: 2rem;
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      width: 40px;
-      transform: translateY(-50%);
-      display: flex;
-      align-items: center;
-      justify-content: center; }
+    .procedure--selected .procedure__info-link {
+      color: #fff; }
+  .procedure__deselect::before {
+    content: '\00d7';
+    font-size: 2rem;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    width: 40px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center; }

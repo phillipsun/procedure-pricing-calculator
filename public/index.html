@@ -38,4 +38,26 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+
+  <script>
+    (function() {
+        var headerMain = document.getElementsByTagName("header")[0];
+        var pricingCalc = document.getElementsByClassName("pricing-calc")[0];
+        var rect = pricingCalc.getBoundingClientRect();
+        
+        window.addEventListener('scroll', function(e) {
+            if((window.pageYOffset || document.documentElement.scrollTop) >= rect.top) {
+                pricingCalc.classList.add("pricing-calc--fixed");
+            }
+            
+            if((window.pageYOffset || document.documentElement.scrollTop) < rect.top) {
+                pricingCalc.classList.remove("pricing-calc--fixed");
+            }
+        });
+
+        window.addEventListener('resize', function(e) {
+          console.log("Resized me");
+        })
+    })();
+  </script>
 </html>

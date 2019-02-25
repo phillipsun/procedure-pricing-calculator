@@ -39,6 +39,12 @@ const procedureReducer = (state = initialState, action) => {
         selectedMax: state.selectedMax + action.payload.MaximumPrice,
       };
     case DESELECT_PROCEDURE:
+      let newDiscount;
+      if(state.selectedProcedures.length <= 1) {
+        newDiscount = 0;
+      } else {
+        newDiscount = state.discount - 500;
+      }
       return {
         ...state,
         procedures: state.procedures.map(procedure =>
@@ -47,11 +53,9 @@ const procedureReducer = (state = initialState, action) => {
             : procedure
         ),
         selectedProcedures: state.selectedProcedures.filter(procedure => procedure !== action.payload.Label),
-        discount: state.discount - 500,
+        discount: newDiscount,
         selectedMin: state.selectedMin - action.payload.MinimumPrice,
-        selectedMax: state.selectedMax - action.payload.MaximumPrice,
-        discountedSelectedMin: state.selectedMin + state.discount - action.payload.MinimumPrice,
-        discountedSelectedMax: state.selectedMax + state.discount - action.payload.MaximumPrice
+        selectedMax: state.selectedMax - action.payload.MaximumPrice
       };
     case CLEAR_PROCEDURES:
       return {

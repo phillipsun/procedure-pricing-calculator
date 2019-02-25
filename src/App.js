@@ -9,13 +9,20 @@ class App extends Component {
     const { getProcedures } = this.props;
     getProcedures();
   }
-
   render() {
+    const { procedures } = this.props;
+    let procedureList;
+
+    if(procedures.length) {
+      procedureList = <ProcedureList/>
+    } else {
+      procedureList = <p>Loading Procedures...</p>
+    }
     return (
       <div className="container">
-        <h1 className="headline app__headline">Select Multiple Procedures To See Your Discount</h1>
+        <h1 className="headline">Select Multiple Procedures To See Your Discount</h1>
         <PricingCalc />
-        <ProcedureList />
+        {procedureList}
         <div className="panel">
           <div className="panel-body">
             <p>
@@ -36,7 +43,11 @@ class App extends Component {
   }
 }
 
+const mapStateToProps = state => ({
+  procedures: state.procedureReducer.procedures
+});
+
 export default connect(
-  null,
+  mapStateToProps,
   { getProcedures }
 )(App);
