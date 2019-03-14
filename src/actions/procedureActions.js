@@ -9,7 +9,7 @@ export const APPLY_DISCOUNT = "APPLY_DISCOUNT";
 export const getProcedures = () => async dispatch => {
   const res = await axios.get(
     // for any other customer, change filing name here and the same result should follow
-    "https://moralesrolando.doctorlogicsitesstage.com/?json=true"
+    "https://moralesrolando.doctorlogic.com/?json=true"
   );
 
   dispatch({
