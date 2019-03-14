@@ -21,153 +21,160 @@ class PricingCalc extends Component {
     if (selectedProcedures.length === 0) {
       return (
         <div className="pricing-calc">
-          <div className="pricing-calc__amounts">
-            <h3 className="pricing-calc__discount">
-              <span>Save: $</span>
-              <AnimatedNumber
-                className="pricing-calc__animated-number"
-                value={discount}
-                stepPrecision={0}
-                duration={1000}
-              />
-            </h3>
-            <div className="pricing-calc__total-wrapper">
-              <h3 className="pricing-calc__new-total no-procedures-selected">
-                <span>Total: $</span>
+          <div className="pricing-calc__container container">
+            <div className="pricing-calc__amounts">
+              <h3 className="pricing-calc__discount">
+                <span>Save: $</span>
                 <AnimatedNumber
                   className="pricing-calc__animated-number"
-                  value={selectedMin}
+                  value={discount}
                   stepPrecision={0}
                   duration={1000}
                 />
               </h3>
+              <div className="pricing-calc__total-wrapper">
+                <h3 className="pricing-calc__new-total no-procedures-selected">
+                  <span>Total: $</span>
+                  <AnimatedNumber
+                    className="pricing-calc__animated-number"
+                    value={selectedMin}
+                    stepPrecision={0}
+                    duration={1000}
+                  />
+                </h3>
+              </div>
             </div>
-          </div>
-          <div className="pricing-calc__selection-wrapper">
-            <h4 className="pricing-calc__text none-selected">No Procedures Selected</h4>
+            <div className="pricing-calc__selection-wrapper">
+              <h4 className="pricing-calc__text none-selected">No Procedures Selected</h4>
+            </div>
           </div>
         </div>
       );
     } else if (selectedProcedures.length === 1) {
       return (
         <div className="pricing-calc">
-          <div className="pricing-calc__amounts">
-            <h3 className="pricing-calc__discount">
-              <span>Save: $</span>
-              <AnimatedNumber
-                className="pricing-calc__animated-number"
-                value={discount}
-                stepPrecision={0}
-                duration={1000}
-              />
-            </h3>
-            <div className="pricing-calc__total-wrapper">
-              <h3 className="pricing-calc__new-total">
-                <span>Total: $</span>
+          <div className="pricing-calc__container container">
+            <div className="pricing-calc__amounts">
+              <h3 className="pricing-calc__discount">
+                <span>Save: $</span>
                 <AnimatedNumber
                   className="pricing-calc__animated-number"
-                  value={selectedMin}
-                  stepPrecision={0}
-                  duration={1000}
-                />
-                <span> - $</span>
-                <AnimatedNumber
-                  className="pricing-calc__animated-number"
-                  value={selectedMax}
+                  value={discount}
                   stepPrecision={0}
                   duration={1000}
                 />
               </h3>
-              <h3 className="pricing-calc__old-total">
-                <span>Was: $</span>
-                <AnimatedNumber
-                  className="pricing-calc__animated-number"
-                  value={selectedMin}
-                  stepPrecision={0}
-                  duration={1000}
-                />
-                <span> - $</span>
-                <AnimatedNumber
-                  className="pricing-calc__animated-number"
-                  value={selectedMax}
-                  stepPrecision={0}
-                  duration={1000}
-                />
-              </h3>
+              <div className="pricing-calc__total-wrapper">
+                <h3 className="pricing-calc__new-total">
+                  <span>Total: $</span>
+                  <AnimatedNumber
+                    className="pricing-calc__animated-number"
+                    value={selectedMin}
+                    stepPrecision={0}
+                    duration={1000}
+                  />
+                  <span> - $</span>
+                  <AnimatedNumber
+                    className="pricing-calc__animated-number"
+                    value={selectedMax}
+                    stepPrecision={0}
+                    duration={1000}
+                  />
+                </h3>
+                <h3 className="pricing-calc__old-total">
+                  <span>Was: $</span>
+                  <AnimatedNumber
+                    className="pricing-calc__animated-number"
+                    value={selectedMin}
+                    stepPrecision={0}
+                    duration={1000}
+                  />
+                  <span> - $</span>
+                  <AnimatedNumber
+                    className="pricing-calc__animated-number"
+                    value={selectedMax}
+                    stepPrecision={0}
+                    duration={1000}
+                  />
+                </h3>
+              </div>
             </div>
-          </div>
-          <div className="pricing-calc__selection-wrapper">
-            <div
-              className="pricing-calc__clear"
-              onClick={() => {
-                clearProcedures();
-              }}
-              >
-                Clear Selections
+            <div className="pricing-calc__selection-wrapper">
+              <div
+                className="pricing-calc__clear"
+                onClick={() => {
+                  clearProcedures();
+                }}
+                >
+                  Clear Selections
+              </div>
+              <h4 className="pricing-calc__text">{selectedProcedures.length} Procedure Selected</h4>
             </div>
-            <h4 className="pricing-calc__text">{selectedProcedures.length} Procedure Selected</h4>
           </div>
         </div>
       );
     } else {
       return (
         <div className="pricing-calc">
-          <div className="pricing-calc__amounts">
-            <h3 className="pricing-calc__discount">
-              <span>Save: $</span>
-              <AnimatedNumber
-                className="pricing-calc__animated-number"
-                value={discount}
-                stepPrecision={0}
-                duration={1000}
-              />
-            </h3>
-            <div className="pricing-calc__total-wrapper">
-              <h3 className="pricing-calc__new-total">
-                <span>Now: $</span>
+          <div className="pricing-calc__container">
+            <div className="pricing-calc__amounts">
+              <h3 className="pricing-calc__discount">
+                <span>Save: $</span>
                 <AnimatedNumber
                   className="pricing-calc__animated-number"
-                  value={discountedSelectedMin}
-                  stepPrecision={0}
-                  duration={1000}
-                />
-                <span> - $</span>
-                <AnimatedNumber
-                  className="pricing-calc__animated-number"
-                  value={discountedSelectedMax}
+                  value={discount}
                   stepPrecision={0}
                   duration={1000}
                 />
               </h3>
-              <h3 className="pricing-calc__old-total">
-                <span>Was: $</span>
-                <AnimatedNumber
-                  className="pricing-calc__animated-number"
-                  value={selectedMin}
-                  stepPrecision={0}
-                  duration={1000}
-                />
-                <span> - $</span>
-                <AnimatedNumber
-                  className="pricing-calc__animated-number"
-                  value={selectedMax}
-                  stepPrecision={0}
-                  duration={1000}
-                />
-              </h3>
-            </div>
+              <div className="pricing-calc__total-wrapper">
+                <h3 className="pricing-calc__new-total">
+                  <span>Now: $</span>
+                  <AnimatedNumber
+                    className="pricing-calc__animated-number"
+                    value={discountedSelectedMin}
+                    stepPrecision={0}
+                    duration={1000}
+                  />
+                  <span> - $</span>
+                  <AnimatedNumber
+                    className="pricing-calc__animated-number"
+                    value={discountedSelectedMax}
+                    stepPrecision={0}
+                    duration={1000}
+                  />
+                </h3>
+                <h3 className="pricing-calc__old-total">
+                  <span>Was: $</span>
+                  <AnimatedNumber
+                    className="pricing-calc__animated-number"
+                    value={selectedMin}
+                    stepPrecision={0}
+                    duration={1000}
+                  />
+                  <span> - $</span>
+                  <AnimatedNumber
+                    className="pricing-calc__animated-number"
+                    value={selectedMax}
+                    stepPrecision={0}
+                    duration={1000}
+                  />
+                </h3>
+              </div>
+            
           </div>
-          <div className="pricing-calc__selection-wrapper">
-            <div
-              className="pricing-calc__clear"
-              onClick={() => {
-                clearProcedures();
-              }}
-            >
-              Clear Selections
-            </div>
-            <h4 className="pricing-calc__text">{selectedProcedures.length} procedures selected</h4>
-          </div>            
+            <div className="pricing-calc__selection-wrapper">
+              <div
+                className="pricing-calc__clear"
+                onClick={() => {
+                  clearProcedures();
+                }}
+              >
+                Clear Selections
+              </div>
+              <h4 className="pricing-calc__text">{selectedProcedures.length} procedures selected</h4>
+            </div>            
+          </div>
         </div>
       );
     }

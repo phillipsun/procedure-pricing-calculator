@@ -33,7 +33,6 @@
 
       You can add webfonts, meta tags, or analytics to this file.
       The build step will place the bundled scripts into the <body> tag.
-
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
@@ -44,20 +43,44 @@
         var headerMain = document.getElementsByTagName("header")[0];
         var pricingCalc = document.getElementsByClassName("pricing-calc")[0];
         var rect = pricingCalc.getBoundingClientRect();
-        
-        window.addEventListener('scroll', function(e) {
-            if((window.pageYOffset || document.documentElement.scrollTop) >= rect.top) {
+        var navHeight;
+        var pricingCalcHeight;
+        var width;
+    
+        window.addEventListener('scroll', function (e) {
+            width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            console.log(width);
+            navHeight = document.getElementsByTagName("nav")[0].offsetHeight;
+            pricingCalcHeight = pricingCalc.offsetHeight;
+            if (window.pageYOffset > (rect.top - navHeight)) {
                 pricingCalc.classList.add("pricing-calc--fixed");
-            }
-            
-            if((window.pageYOffset || document.documentElement.scrollTop) < rect.top) {
+                document.querySelector('.procedure-list').style.marginTop = pricingCalcHeight + "px";
+            } else {
                 pricingCalc.classList.remove("pricing-calc--fixed");
+                document.querySelector('.procedure-list').style.marginTop = "0";
             }
         });
-
+        
         window.addEventListener('resize', function(e) {
-          console.log("Resized me");
-        })
+            width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+            if(width > 991) {
+                navHeight = document.getElementsByTagName("nav")[0].offsetHeight;
+            } else {
+                navHeight = document.getElementsByTagName("header")[0].offsetHeight;
+            }
+            console.log("width: " + width);
+            
+            pricingCalcHeight = pricingCalc.offsetHeight;
+            if (window.pageYOffset > (rect.top - navHeight)) {
+                console.log(navHeight);
+                pricingCalc.classList.add("pricing-calc--fixed");
+                document.querySelector('.procedure-list').style.marginTop = pricingCalcHeight + "px";
+            } else {
+                pricingCalc.classList.remove("pricing-calc--fixed");
+                document.querySelector('.procedure-list').style.marginTop = "0";
+            }
+        });
+        
     })();
   </script>
 </html>

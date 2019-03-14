@@ -9,7 +9,7 @@ body {
   color: $color-2;
 }
 
-#root .container {
+#root > .container {
   padding: 0;
   margin: 0;
   width: 100%; 
@@ -28,26 +28,33 @@ body {
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 15px 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  transition: all 1s;
-  @media(min-width: $tablet-wide-min) { 
-    align-items: flex-start;
-  }
   &--fixed {
     position: fixed;
     top: 80px;
+    left: 0;
+    right: 0;
     margin-right: auto;
     margin-left: auto;
-    @media(min-width: 768px) {
-      width: 750px;
-    }
-    // matches breakpoint of header for this customer
     @media(min-width: 992px) {
       top: 72px;
+    }
+  }
+  &__container {
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: all 1s;
+    margin: 0;
+    width: 100%;
+    @media(min-width: 768px) {
+      align-items: flex-start;
+      margin-right: auto;
+      margin-left: auto;
+      width: 750px;
+    }
+    @media(min-width: 992px) {
       width: 970px;
     }
     @media(min-width: 1200px) {

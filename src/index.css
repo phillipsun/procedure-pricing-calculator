@@ -5,7 +5,7 @@ body {
 #root {
   color: #fff; }
 
-#root .container {
+#root > .container {
   padding: 0;
   margin: 0;
   width: 100%; }
@@ -20,30 +20,37 @@ body {
   background: #333333;
   left: 0;
   right: 0;
-  z-index: 100;
-  padding: 15px 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
-  transition: all 1s; }
-  @media (min-width: 768px) {
-    .pricing-calc {
-      align-items: flex-start; } }
+  z-index: 100; }
   .pricing-calc--fixed {
     position: fixed;
     top: 80px;
+    left: 0;
+    right: 0;
     margin-right: auto;
     margin-left: auto; }
-    @media (min-width: 768px) {
-      .pricing-calc--fixed {
-        width: 750px; } }
     @media (min-width: 992px) {
       .pricing-calc--fixed {
-        top: 72px;
+        top: 72px; } }
+  .pricing-calc__container {
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: all 1s;
+    margin: 0;
+    width: 100%; }
+    @media (min-width: 768px) {
+      .pricing-calc__container {
+        align-items: flex-start;
+        margin-right: auto;
+        margin-left: auto;
+        width: 750px; } }
+    @media (min-width: 992px) {
+      .pricing-calc__container {
         width: 970px; } }
     @media (min-width: 1200px) {
-      .pricing-calc--fixed {
+      .pricing-calc__container {
         width: 1170px; } }
   .pricing-calc__amounts {
     display: flex;
