@@ -12,7 +12,7 @@ body {
 #root > .container {
   padding: 0;
   margin: 0;
-  width: 100%; 
+  width: 100%;
 }
 
 .headline {
@@ -35,7 +35,7 @@ body {
     right: 0;
     margin-right: auto;
     margin-left: auto;
-    @media(min-width: 992px) {
+    @media (min-width: 992px) {
       top: 72px;
     }
   }
@@ -48,16 +48,16 @@ body {
     transition: all 1s;
     margin: 0;
     width: 100%;
-    @media(min-width: 768px) {
+    @media (min-width: 768px) {
       align-items: flex-start;
       margin-right: auto;
       margin-left: auto;
       width: 750px;
     }
-    @media(min-width: 992px) {
+    @media (min-width: 992px) {
       width: 970px;
     }
-    @media(min-width: 1200px) {
+    @media (min-width: 1200px) {
       width: 1170px;
     }
   }
@@ -65,7 +65,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    @media(min-width: $tablet-wide-min) { 
+    @media (min-width: $tablet-wide-min) {
       flex-direction: row;
       align-items: flex-start;
     }
@@ -74,7 +74,7 @@ body {
     margin: 10px 0 0 0;
     display: inline-flex;
     flex-direction: column;
-    @media(min-width: $tablet-wide-min) {
+    @media (min-width: $tablet-wide-min) {
       margin: 0 0 0 40px;
     }
   }
@@ -82,22 +82,22 @@ body {
     display: inline-block;
     font-size: 1.2rem;
     margin: 0;
-    @media(min-width: $phone-wide-min) {
-      font-size: 1.5rem;  
+    @media (min-width: $phone-wide-min) {
+      font-size: 1.5rem;
     }
     &.no-procedures-selected {
-      opacity: .2;
+      opacity: 0.2;
     }
   }
   &__old-total {
     display: inline-block;
-    font-size: .9rem;
+    font-size: 0.9rem;
     margin: 3px auto 0;
     text-decoration: line-through;
-    @media(min-width: $phone-wide-min) {
+    @media (min-width: $phone-wide-min) {
       font-size: 1.2rem;
     }
-    @media(min-width: $tablet-wide-min) {
+    @media (min-width: $tablet-wide-min) {
       margin: 3px 0 0 0;
     }
   }
@@ -112,7 +112,7 @@ body {
     margin: 0;
     text-transform: uppercase;
     transition: all 0.3s;
-    @media(min-width: $phone-wide-min) {
+    @media (min-width: $phone-wide-min) {
       font-size: 1.5rem;
     }
   }
@@ -121,7 +121,7 @@ body {
     display: flex;
     flex-direction: column-reverse;
     margin: 10px 0 0;
-    @media(min-width: $tablet-wide-min) {
+    @media (min-width: $tablet-wide-min) {
       align-items: center;
       flex-direction: row;
       margin: 50px 0 0;
@@ -132,7 +132,7 @@ body {
     font-weight: 100;
     margin: 5px 0;
     text-transform: capitalize;
-    @media(min-width: $tablet-wide-min) {
+    @media (min-width: $tablet-wide-min) {
       font-size: 1.2rem;
       margin: 0 0 0 30px;
     }
@@ -146,10 +146,10 @@ body {
     display: inline-block;
     margin: 0 auto;
     padding: 10px 20px;
-    @media(min-width: $tablet-wide-min) {
+    @media (min-width: $tablet-wide-min) {
       margin: 0;
     }
-    @media(min-width: $desktop-sm-min) {
+    @media (min-width: $desktop-sm-min) {
       &:hover {
         background: lighten($color-4, 25%);
       }
@@ -158,16 +158,16 @@ body {
 }
 
 .procedure-list {
-  @media(min-width: $phone-wide-min) {
+  @media (min-width: $phone-wide-min) {
     columns: 2;
   }
-  @media(min-width: $desktop-min) {
+  @media (min-width: $desktop-min) {
     columns: 3;
   }
   &__category {
     display: block;
     margin-bottom: 0px;
-    @media(min-width: $phone-wide-min) {
+    @media (min-width: $phone-wide-min) {
       display: inline-block;
       margin-bottom: 30px;
       width: 100%;
@@ -187,9 +187,15 @@ body {
   padding: 15px 50px 15px 10px;
   position: relative;
   transition: 0.3s all;
-  @media(min-width: $desktop-sm-min) {
+  &--795,
+  &--3072,
+  &--3073,
+  &--42336 {
+    display: none;
+  }
+  @media (min-width: $desktop-sm-min) {
     &:hover {
-      background: rgba(200, 200, 200, .15);
+      background: rgba(200, 200, 200, 0.15);
       cursor: pointer;
     }
   }
@@ -199,7 +205,7 @@ body {
     margin: 0;
     text-transform: capitalize;
     display: inline-block;
-    @media(min-width: $desktop-sm-min) {
+    @media (min-width: $desktop-sm-min) {
       font-size: 1.4rem;
     }
   }
@@ -217,7 +223,7 @@ body {
   }
   &--selected {
     background: $color-3;
-    @media(min-width: $desktop-sm-min) {
+    @media (min-width: $desktop-sm-min) {
       &:hover {
         padding: 15px 50px 15px 10px;
         background: $color-3;
@@ -228,7 +234,7 @@ body {
     }
   }
   &__deselect::before {
-    content: '\00d7';
+    content: "\00d7";
     font-size: 2rem;
     position: absolute;
     right: 10px;

@@ -75,10 +75,10 @@ body {
       .pricing-calc__new-total {
         font-size: 1.5rem; } }
     .pricing-calc__new-total.no-procedures-selected {
-      opacity: .2; }
+      opacity: 0.2; }
   .pricing-calc__old-total {
     display: inline-block;
-    font-size: .9rem;
+    font-size: 0.9rem;
     margin: 3px auto 0;
     text-decoration: line-through; }
     @media (min-width: 569px) {
@@ -163,6 +163,8 @@ body {
   padding: 15px 50px 15px 10px;
   position: relative;
   transition: 0.3s all; }
+  .procedure--795, .procedure--3072, .procedure--3073, .procedure--42336 {
+    display: none; }
   @media (min-width: 1025px) {
     .procedure:hover {
       background: rgba(200, 200, 200, 0.15);
@@ -195,7 +197,7 @@ body {
     .procedure--selected .procedure__info-link {
       color: #fff; }
   .procedure__deselect::before {
-    content: '\00d7';
+    content: "\00d7";
     font-size: 2rem;
     position: absolute;
     right: 10px;
